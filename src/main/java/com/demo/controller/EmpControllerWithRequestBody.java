@@ -3,6 +3,7 @@ package com.demo.controller;
 import com.demo.model.Employee;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ public class EmpControllerWithRequestBody {
     // add, get_all , update, delete
 
     //ADD ENDPOINT
-    @RequestMapping("/add_emp_new")
+    //value = "/all", method = RequestMethod.GET
+    @RequestMapping(value ="/add_emp_new", method = RequestMethod.POST)
     public String addEmployee(@RequestBody Employee employee){
 
         employeeArrayList.add(employee);
@@ -22,14 +24,14 @@ public class EmpControllerWithRequestBody {
     }
 
     //get_all ENDPOINT
-    @RequestMapping("/get_all_emp_new")
+    @RequestMapping(value = "/get_all_emp_new" , method = RequestMethod.GET)
     public ArrayList<Employee> getEmployeeArrayList(){
 
         return employeeArrayList;
     }
 
     //update ENDPOINT
-    @RequestMapping("/update_emp_new")
+    @RequestMapping(value = "/update_emp_new", method = RequestMethod.PUT)
     public String updateEmployee(){
 
         Employee employee1= employeeArrayList.get(0);
@@ -39,7 +41,7 @@ public class EmpControllerWithRequestBody {
     }
 
     //delete ENDPOINT
-    @RequestMapping("/delete_emp_new")
+    @RequestMapping(value="/delete_emp_new", method = RequestMethod.DELETE)
     public String removeEmployee(){
         employeeArrayList.remove(0);
 
