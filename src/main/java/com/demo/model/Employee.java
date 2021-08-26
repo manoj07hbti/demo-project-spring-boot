@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Employee {
 
     @Id // primary key unique value
-    @GeneratedValue // Automatically increment current 0,1,2,3,......14,15
+    @GeneratedValue // Automatically increment current 1,2,3,......14,15
             Long id;
 
     String name;
